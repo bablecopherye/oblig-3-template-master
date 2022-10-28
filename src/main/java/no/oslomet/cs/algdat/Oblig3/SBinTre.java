@@ -196,7 +196,25 @@ public class SBinTre<T> {
             throw new NoSuchElementException("Det er ingenting i treet!");
         }
 
+        // Hvis p sin forelder er null, så er p automatisk null.
+        else if (p.forelder == null) {
+            p = null;
+        }
 
+        // Ellers forsetter p oppover
+        else if (p == p.forelder.høyre) {
+            p = p.forelder;
+        }
+
+        else if (p == p.forelder.venstre) {
+
+            if (p.forelder.høyre == null) {
+                p = p.forelder;
+            }
+
+            else
+            p = førstePostorden(p.forelder.høyre);
+        }
 
         // Returnerer p
         return p;
