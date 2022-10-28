@@ -3,14 +3,10 @@ package no.oslomet.cs.algdat.Oblig3;
 
 ////// Testprogram for mappeeksamen ////////////////////////
 
-import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.Random;
 import java.util.concurrent.atomic.AtomicReference;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 public class Oblig3Test {
 
