@@ -7,6 +7,8 @@ Oppgaven er levert av følgende student:
 
 # Oppgavebeskrivelse
 
-I oppgave 1 så gikk jeg frem ved å ...
+I oppgave 1 så gikk jeg frem ved å først kopiere kildekode fra kompendiet under Programkode 5.2.3 a). 
+Deretter utførte jeg en liten endring, som innebar å legge til verdien i variabelen `q` 
+når ny node opprettes, for å angi foreldrenoden.
 
 I oppgave 2 så brukte jeg en ... til å ...
