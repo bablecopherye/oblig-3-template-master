@@ -13,7 +13,18 @@ public class SBinTre<T> {
         Integer[] a = {4,7,2,9,5,10,8,1,3,6};
         SBinTre<Integer> tre = new SBinTre<>(Comparator.naturalOrder());
         for (int verdi : a) {tre.leggInn(verdi); }
-        System.out.println(tre.antall());  // Utskrift: 10
+        //System.out.println(tre.antall());  // Utskrift: 10
+
+
+        Integer[] a2 = {4,7,2,9,4,10,8,7,4,6};
+        SBinTre<Integer> tre2 = new SBinTre<>(Comparator.naturalOrder());
+        for (int verdi : a2) { tre2.leggInn(verdi); }
+
+        System.out.println(tre.antall());      // Utskrift: 10
+        System.out.println(tre.antall(5));     // Utskrift: 0
+        System.out.println(tre.antall(4));     // Utskrift: 3
+        System.out.println(tre.antall(7));     // Utskrift: 2
+        System.out.println(tre.antall(10));    // Utskrift: 1
     }
 
 
@@ -143,8 +154,50 @@ public class SBinTre<T> {
         throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
 
+
+/*
+Metodene inneholder(), antall() og tom() er ferdig kodet. Den første avgjør om en verdi
+ligger i treet eller ikke. De to andre fungerer på vanlig måte. Lag kode for metoden public
+int antall(T verdi). Den skal returnere antall forekomster av verdi i treet. Det er tillatt
+med  duplikater  og  det  betyr  at  en  verdi  kan  forekomme  flere  ganger.  Hvis verdi ikke  er  i
+treet (null er ikke i treet), skal metoden returnere 0. Test koden din ved å lage trær der du
+legger inn flere like verdier. Sjekk at metoden din da gir rett svar. Her er ett eksempel:
+  Integer[] a = {4,7,2,9,4,10,8,7,4,6};
+  SBinTre<Integer> tre = new SBinTre<>(Comparator.naturalOrder());
+  for (int verdi : a) { tre.leggInn(verdi); }
+
+  System.out.println(tre.antall());      // Utskrift: 10
+  System.out.println(tre.antall(5));     // Utskrift: 0
+  System.out.println(tre.antall(4));     // Utskrift: 3
+  System.out.println(tre.antall(7));     // Utskrift: 2
+  System.out.println(tre.antall(10));    // Utskrift: 1
+ */
+
+
     public int antall(T verdi) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+
+        int antallForekomster = 0;
+
+        if (tom()) {
+            return 0;
+        }
+
+        else if (inneholder(verdi) == false) {
+            return 0;
+        }
+
+        else {
+
+            Node<T> node = rot;
+
+            for (int i = 0; i < antall; i++) {
+
+                if (verdi.equals(node.verdi))
+                antallForekomster++;
+            }
+        }
+
+        return antallForekomster;
     }
 
     public void nullstill() {
