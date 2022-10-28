@@ -1,10 +1,7 @@
 package no.oslomet.cs.algdat.Oblig3;
 
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Objects;
-import java.util.StringJoiner;
+import java.util.*;
 
 public class SBinTre<T> {
 
@@ -172,7 +169,15 @@ public class SBinTre<T> {
     }
 
     private static <T> Node<T> førstePostorden(Node<T> p) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+
+        // Sjekker om treet er tomt
+        if (p==null) {
+            throw new NoSuchElementException("Det er ingenting i treet!");
+        }
+
+
+         return p;
+
     }
 
     private static <T> Node<T> nestePostorden(Node<T> p) {
