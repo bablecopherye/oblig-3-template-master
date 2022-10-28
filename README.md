@@ -30,3 +30,7 @@ metoden `førstePostorden()` for startnode, for deretter å utføre oppgave. Met
 for å hente neste node. En while-løkke løper videre, utfører oppgave i rekkefølge og oppdaterer variabelen
 som settes av `nestePostorden()`. Den andre metoden, `postordenRecursive()`, travereseres treet i postorden rekkefølge,
 og kaller seg selv hvis hvis p sin venstre ikke er null, eller deretter p sin høyre ikke er null.
+
+
+Ellers:
+Gjenstående warnings handler for det meste om Non-ASCII characters og symbols. Jeg fjernet ubrukte metoder og tester.
