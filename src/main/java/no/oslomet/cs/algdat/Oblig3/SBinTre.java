@@ -33,7 +33,6 @@ public class SBinTre<T> {
 
     private Node<T> rot;                            // peker til rotnoden
     private int antall;                             // antall noder
-    private int endringer;                          // antall endringer
 
     private final Comparator<? super T> comp;       // komparator
 
@@ -110,13 +109,6 @@ public class SBinTre<T> {
         return true;                             // vellykket innlegging
     }
 
-    public boolean fjern(T verdi) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
-    }
-
-    public int fjernAlle(T verdi) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
-    }
 
     public int antall(T verdi) {
 
@@ -124,7 +116,7 @@ public class SBinTre<T> {
         int antallForekomster = 0;
 
         // Hvis treet er tomt eller hvis verdien ikke finnes, så returneres 0
-        if (tom() || inneholder(verdi) == false) {
+        if (tom() || !inneholder(verdi)) {
             return 0;
         }
 
@@ -157,9 +149,6 @@ public class SBinTre<T> {
         return antallForekomster;
     }
 
-    public void nullstill() {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
-    }
 
     private static <T> Node<T> førstePostorden(Node<T> p) {
 
@@ -201,7 +190,7 @@ public class SBinTre<T> {
             p = null;
         }
 
-        // Ellers forsetter p oppover
+        // Ellers forsetter p til neste
         else if (p == p.forelder.høyre) {
             p = p.forelder;
         }
@@ -221,7 +210,24 @@ public class SBinTre<T> {
     }
 
     public void postorden(Oppgave<? super T> oppgave) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+
+        // Er roten null?
+        if (rot == null) {
+            return;
+        }
+
+        // Første verdi hentes og skrives ut
+        Node<T> node1 = førstePostorden(rot);
+        oppgave.utførOppgave(node1.verdi);
+
+        // Neste verdi deklareres og initialiseres
+        Node<T> node2 = nestePostorden(node1);
+
+        // Løper gjennom og utfører oppgave
+        while (node2!=null) {
+            oppgave.utførOppgave(node2.verdi);
+            node2 = nestePostorden(node2);
+        }
     }
 
     public void postordenRecursive(Oppgave<? super T> oppgave) {
@@ -229,16 +235,21 @@ public class SBinTre<T> {
     }
 
     private void postordenRecursive(Node<T> p, Oppgave<? super T> oppgave) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
-    }
 
-    public ArrayList<T> serialize() {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
-    }
+        // Er noden p null?
+        if (p == null) {
+            return;
+        }
 
-    static <K> SBinTre<K> deserialize(ArrayList<K> data, Comparator<? super K> c) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
-    }
+        if (p.venstre != null) {
+            postordenRecursive(p.venstre,oppgave);
+        }
 
+        if (p.høyre != null){
+            postordenRecursive(p.høyre,oppgave);
+        }
+
+        oppgave.utførOppgave(p.verdi);
+    }
 
 } // ObligSBinTre
