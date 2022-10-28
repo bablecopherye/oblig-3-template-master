@@ -5,13 +5,6 @@ import java.util.*;
 
 public class SBinTre<T> {
 
-    public static void main (String[] args) {
-
-    }
-
-
-
-
     private static final class Node<T>   // en indre nodeklasse
     {
         private T verdi;                   // nodens verdi
@@ -175,11 +168,25 @@ public class SBinTre<T> {
             throw new NoSuchElementException("Det er ingenting i treet!");
         }
 
+        while (true) {
 
+            // Så lenge p sin venstre ikke viser null, betyr det at noden har et venstre subtre
+            if (p.venstre != null) {
+
+                // Beveger seg til venstre i subtreet
+                p = p.venstre;
+            }
+
+            // Går til høyre hvis p sin høyre ikke viser null
+            else if (p.høyre != null) {
+                p = p.høyre;
+            }
 
             // Returnerer p
-            return p;
-
+            else {
+                return p;
+            }
+        }
     }
 
     private static <T> Node<T> nestePostorden(Node<T> p) {
