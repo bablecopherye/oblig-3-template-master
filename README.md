@@ -12,9 +12,13 @@ Deretter utførte jeg en liten endring, som innebar å legge til verdien i varia
 når ny node opprettes, for å angi foreldrenoden.
 
 I oppgave 2 så startet jeg med å sjekke om treet var tomt eller ikke innholdt
-verdien det letes etter i utgangspunktet ved å kalle på metodene tom() og
-inneholder(). Så startet letingen fra rot. Benyttet en while-løkke til å løpe gjennom.
-Verdiene ble sammenliknet ved bruk av comp.compare(). Hvis en sammenlikning gir et negativt tall, så betyr det at 
+verdien det letes etter i utgangspunktet ved å kalle på metodene `tom()` og
+`inneholder()`. Så startet letingen fra rot. Benyttet en while-løkke til å løpe gjennom.
+Verdiene ble sammenliknet ved bruk av `comp.compare()`. Hvis en sammenlikning gir et negativt tall, så betyr det at 
 verdiene er ulike, og det letes videre. Hvis sammenlikningen viser 0, så betyr det at en forekomst er 
 funnet og vi adderer antallet. Til slutt returneres antallet forekomster av verdien det ble søkt etter.
 
+Oppgave 3: I `førstePostorden(Node<T> p)` brukes en `while`-løkke til å løpe gjennom. Inni denne løkka så er det
+`if`-/`else`-setninger. Så lenge `p` sin venstre ikke viser `null`, betyr det at noden har et venstre subtre og beveger seg
+dermed til venstre i subtreet. Hvis `p` sin venstre viser `null`, sjekkes det så om `p` sin høyre viser `null` eller ikke.
+Hvis ikke `null`, så gås det til høyre i subtreet. Returnerer til slutt `p`. I `nestePostorden(Node<T> p)` 
