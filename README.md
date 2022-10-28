@@ -21,4 +21,12 @@ funnet og vi adderer antallet. Til slutt returneres antallet forekomster av verd
 Oppgave 3: I `førstePostorden(Node<T> p)` brukes en `while`-løkke til å løpe gjennom. Inni denne løkka så er det
 `if`-/`else`-setninger. Så lenge `p` sin venstre ikke viser `null`, betyr det at noden har et venstre subtre og beveger seg
 dermed til venstre i subtreet. Hvis `p` sin venstre viser `null`, sjekkes det så om `p` sin høyre viser `null` eller ikke.
-Hvis ikke `null`, så gås det til høyre i subtreet. Returnerer til slutt `p`. I `nestePostorden(Node<T> p)` 
+Hvis ikke `null`, så gås det til høyre i subtreet. Returnerer til slutt `p`. I `nestePostorden(Node<T> p)` returneres
+noden som kommer etter p i postorden.
+
+Oppgave 4: Lagde hjelpemetodene `public void postorden(Oppgave <? super T> oppgave)` og
+`private void postordenRecursive(Node<T>  p,  Oppgave<?  super  T>  oppgave)`. Den første metoden benyttet seg av
+metoden `førstePostorden()` for startnode, for deretter å utføre oppgave. Metoden `nestePostorden()` ble så brukt
+for å hente neste node. En while-løkke løper videre, utfører oppgave i rekkefølge og oppdaterer variabelen
+som settes av `nestePostorden()`. Den andre metoden, `postordenRecursive()`, travereseres treet i postorden rekkefølge,
+og kaller seg selv hvis hvis p sin venstre ikke er null, eller deretter p sin høyre ikke er null.
