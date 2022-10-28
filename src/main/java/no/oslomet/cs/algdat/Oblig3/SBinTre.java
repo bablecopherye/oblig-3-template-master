@@ -7,6 +7,18 @@ import java.util.Objects;
 import java.util.StringJoiner;
 
 public class SBinTre<T> {
+
+    public static void main (String[] args) {
+
+        Integer[] a = {4,7,2,9,5,10,8,1,3,6};
+        SBinTre<Integer> tre = new SBinTre<>(Comparator.naturalOrder());
+        for (int verdi : a) {tre.leggInn(verdi); }
+        System.out.println(tre.antall());  // Utskrift: 10
+    }
+
+
+
+
     private static final class Node<T>   // en indre nodeklasse
     {
         private T verdi;                   // nodens verdi
@@ -86,7 +98,13 @@ public class SBinTre<T> {
 
 
 
+
+
+
     public boolean leggInn(T verdi) {
+
+        // Kildekoden i denne metoden er kopiert inn fra kompendiet under Programkode 5.2.3 a).
+        // Det er utført en liten endring i koden for å løse oppgave 1 i denne OBLIGEN.
 
         Objects.requireNonNull(verdi, "Ulovlig med nullverdier!");
 
@@ -102,7 +120,7 @@ public class SBinTre<T> {
 
         // p er nå null, dvs. ute av treet, q er den siste vi passerte
 
-        p = new Node<>(verdi);                   // oppretter en ny node
+        p = new Node<>(verdi,q);                   // oppretter en ny node
 
         if (q == null) rot = p;                  // p blir rotnode
         else if (cmp < 0) q.venstre = p;         // venstre barn til q
@@ -110,9 +128,8 @@ public class SBinTre<T> {
 
         antall++;                                // én verdi mer i treet
         return true;                             // vellykket innlegging
-
-
     }
+
 
 
 
