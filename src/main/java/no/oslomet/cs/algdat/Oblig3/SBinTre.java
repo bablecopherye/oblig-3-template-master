@@ -171,17 +171,28 @@ public class SBinTre<T> {
     private static <T> Node<T> førstePostorden(Node<T> p) {
 
         // Sjekker om treet er tomt
-        if (p==null) {
+        if (p == null) {
             throw new NoSuchElementException("Det er ingenting i treet!");
         }
 
 
-         return p;
+
+            // Returnerer p
+            return p;
 
     }
 
     private static <T> Node<T> nestePostorden(Node<T> p) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+
+        // Sjekker om treet er tomt
+        if (p == null) {
+            throw new NoSuchElementException("Det er ingenting i treet!");
+        }
+
+
+
+        // Returnerer p
+        return p;
     }
 
     public void postorden(Oppgave<? super T> oppgave) {
